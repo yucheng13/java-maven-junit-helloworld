@@ -3,7 +3,6 @@ package com.example.javamavenjunithelloworld;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.StandardOutputStreamLog;
-
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
