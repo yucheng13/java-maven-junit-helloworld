@@ -12,7 +12,8 @@ import static org.junit.Assert.*;
 
 /**
  * Unit test for Hello.
- * A unit test aims to test all code and this is a trial for merger conflict.
+ * A unit test aims to test all code.
+ * This is a trial for merger conflict.
  */
 public class HelloTest {
 
