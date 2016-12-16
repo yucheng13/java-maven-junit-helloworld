@@ -12,7 +12,7 @@ import static org.powermock.api.mockito.PowerMockito.whenNew;
 /**
  * Unit test for HelloApp.
  * <p/>
- * A unit test aims to test all code and code paths of a specific class.
+ * A unit test aims to test all code and code paths of a specific class and this is just a trial
  * <p/>
  * This test uses PowerMock and Mockito to mock objects.
  */
