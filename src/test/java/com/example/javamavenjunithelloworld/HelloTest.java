@@ -12,7 +12,8 @@ import static org.junit.Assert.*;
 
 /**
  * Unit test for Hello.
- * A unit test aims to test all code and code paths of a specific class.
+ * A unit test aims to test all code.
+ * and code paths of a specific class.
  */
 public class HelloTest {
 
