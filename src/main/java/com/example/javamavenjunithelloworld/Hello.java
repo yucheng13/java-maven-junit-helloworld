@@ -2,10 +2,6 @@ package com.example.javamavenjunithelloworld;
 
 import java.io.PrintStream;
 
-/**
- * Simple class that says "Hello!".
- **/
-
 public class Hello {
 
     static final String HELLO = "Hello!";
