@@ -6,7 +6,8 @@ import org.junit.contrib.java.lang.system.StandardOutputStreamLog;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
-
+/*
+*/
 public class HelloWithTestsIT {
 
     @Rule
