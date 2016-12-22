@@ -10,7 +10,7 @@ public class HelloApp {
     /**
      * The main method of this program.
      *
-     * @param args Arguments passed to this program.
+     * @param args Arguments passed to this program
      */
     public static void main(String[] args) {
 
