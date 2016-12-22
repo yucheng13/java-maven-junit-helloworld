@@ -13,7 +13,6 @@ public class Hello {
      *
      
      * @param times How many times should this class say "Hello!"? The value should be no larger than 20.
-     * @throws IllegalArgumentException Thrown when times is larger than 20 or a negative number.
      
      
     */
