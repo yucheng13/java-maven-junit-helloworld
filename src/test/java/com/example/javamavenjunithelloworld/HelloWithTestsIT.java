@@ -6,6 +6,7 @@ import org.junit.contrib.java.lang.system.StandardOutputStreamLog;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
+
 /**
  * Integration test for the HelloApp program.
  * <p/>
@@ -15,6 +16,8 @@ import static org.junit.Assert.*;
  
  * http://www.stefan-birkner.de/system-rules
  */
+
+
 public class HelloWithTestsIT {
 
     @Rule

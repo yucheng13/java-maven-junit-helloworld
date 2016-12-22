@@ -10,10 +10,7 @@ import java.io.PrintStream;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
-/**
- * Unit test for Hello.
- * A unit test aims to test all code.
- */
+
 public class HelloTest {
 
     @Test
