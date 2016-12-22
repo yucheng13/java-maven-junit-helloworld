@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
  * An integration test verifies the workings of a complete program, a module, or a set of dependant classes.
  * This integration test uses system-rules, an extension for JUnit that lets you test System.out and System.exit()
  * etc
+ 
  * http://www.stefan-birkner.de/system-rules
  */
 public class HelloWithTestsIT {
