@@ -9,12 +9,10 @@ public class Hello {
 
     public void setTimes(int times) {
         if (times < 0 || times > MAXIMUM_AMOUNT_OF_TIMES) {
-            throw new IllegalArgumentException("Parameter «times» should be a positive integer no larger than "
-                    + MAXIMUM_AMOUNT_OF_TIMES + ".");
+            throw new IllegalArgumentException("Parameter «times» should be a positive integer no larger than " + MAXIMUM_AMOUNT_OF_TIMES + ".");
         }
         this.times = (short) times;
     }
-
 
     public void sayHello(PrintStream printer) {
         for (short i = 0; i < times; i++) {
