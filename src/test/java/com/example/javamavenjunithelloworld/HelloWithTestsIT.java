@@ -37,7 +37,7 @@ public class HelloWithTestsIT {
         String[] args = {"3"};
         HelloApp.main(args);
 
-        String thrice = Hello.HELLO + "\r\n" + Hello.HELLO + "\r\n";
-        assertThat(out.getLog(), is(equalTo(twice)));
+        String thrice = Hello.HELLO + "\r\n" + Hello.HELLO + "\r\n" + Hello.HELLO + "\r\n";
+        assertThat(out.getLog(), is(equalTo(thrice)));
     }
 }
