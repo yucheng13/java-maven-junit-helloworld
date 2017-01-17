@@ -14,8 +14,6 @@ import static org.junit.Assert.*;
  * This integration test uses system-rules, an extension for JUnit that lets you test System.out and System.exit()
  * etc\
  * Testing with webhooks.
- 
- * http://www.stefan-birkner.de/system-rules
  */
 
 
