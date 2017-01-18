@@ -16,7 +16,7 @@ public class HelloApp {
             } catch (NumberFormatException e) {
                 System.err.println("I don't understand the parameter you passed me. Is it a number? " +
                         "Parameter was: [" + args[0] + "]");
-               // System.exit(EXIT_STATUS_PARAMETER_NOT_UNDERSTOOD);
+                System.exit(EXIT_STATUS_PARAMETER_NOT_UNDERSTOOD);
             }
         }
 
