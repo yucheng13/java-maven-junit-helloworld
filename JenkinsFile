@@ -15,11 +15,13 @@ node {
    
    stage ('Sonar Analysis') {
    //Running Sonar Analysis
+   withSonarQubeEnv {
    sonar ->
      sonar / 'builders' << 'hudson.plugins.sonar.SonarRunnerBuilder' { 
         properties "sonar.projectName = GroovyExample \n sonar.projectVersion=1.0 \n sonar.projectKey=GroovyExample \n sonar.sources=."
         javaOpts ''
         jdk '(Inherit From Job)'
+     }
      }
    }
    
