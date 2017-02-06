@@ -1,16 +1,27 @@
-#!groovy
-node {
-   checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'ca9b112d-19c3-491c-8e6d-23ec20cc5290', url: 'https://github.com/amruthapbhat/java-maven-junit-helloworld']]])
+jobDsl removedJobAction: 'DELETE', removedViewAction: 'DELETE', targets: '''job(\'GroovyExample\') {
+    scm {
+        git {
+            remote {
+                github(\'amruthapbhat/java-maven-junit-helloworld\')
+                credentials (\'ca9b112d-19c3-491c-8e6d-23ec20cc5290\')
+                refspec(\'+refs/pull/*:refs/remotes/origin/pr/*\')
+            }
+            branch(\'*/feature\')
+            extensions {   
+    wipeOutWorkspace()
+  }
+    }       
+}
 
 triggers {
         githubPullRequest {
-            admin('amruthapbhat')            
-            userWhitelist('you@you.com')
-            userWhitelist(['me@me.com', 'they@they.com'])
-            orgWhitelist('my_github_org')
-            orgWhitelist(['your_github_org', 'another_org'])
-            cron('H/5 * * * *')
-            triggerPhrase('OK to test')
+            admin(\'amruthapbhat\')            
+            userWhitelist(\'you@you.com\')
+            userWhitelist([\'me@me.com\', \'they@they.com\'])
+            orgWhitelist(\'my_github_org\')
+            orgWhitelist([\'your_github_org\', \'another_org\'])
+            cron(\'H/5 * * * *\')
+            triggerPhrase(\'OK to test\')
             onlyTriggerPhrase()
             useGitHubHooks()
             permitAll()
@@ -18,45 +29,45 @@ triggers {
             allowMembersOfWhitelistedOrgsAsAdmin()
             extensions {
                 commitStatus {
-                    context('deploy to staging site')
-                    triggeredStatus('starting deployment to staging site...')
-                    startedStatus('deploying to staging site...')
-                    statusUrl('http://mystatussite.com/prs')
-                    completedStatus('SUCCESS', 'All is well')
-                    completedStatus('FAILURE', 'Something went wrong. Investigate!')
-                    completedStatus('PENDING', 'still in progress...')
-                    completedStatus('ERROR', 'Something went really wrong. Investigate!')
+                    context(\'deploy to staging site\')
+                    triggeredStatus(\'starting deployment to staging site...\')
+                    startedStatus(\'deploying to staging site...\')
+                    statusUrl(\'http://mystatussite.com/prs\')
+                    completedStatus(\'SUCCESS\', \'All is well\')
+                    completedStatus(\'FAILURE\', \'Something went wrong. Investigate!\')
+                    completedStatus(\'PENDING\', \'still in progress...\')
+                    completedStatus(\'ERROR\', \'Something went really wrong. Investigate!\')
                 }
             }
         }
     }
   
     steps {
-        maven('clean install', 'pom.xml')       
+        maven(\'clean install\', \'pom.xml\')       
     }
   
  
   
   publishers {   
     configure { project ->
-    project / publishers / 'quality.gates.jenkins.plugin.QGPublisher' (plugin:'quality-gates@2.5'){            
+    project / publishers / \'quality.gates.jenkins.plugin.QGPublisher\' (plugin:\'quality-gates@2.5\'){            
         jobConfigData{
-            projectKey('GroovyExample')
-            sonarInstanceName('SonarQube')                
+            projectKey(\'GroovyExample\')
+            sonarInstanceName(\'SonarQube\')                
        		}            
     	}
     }
       
      configure { sonar ->
-     sonar / 'builders' << 'hudson.plugins.sonar.SonarRunnerBuilder' { 
-        properties "sonar.projectName = GroovyExample \n sonar.projectVersion=1.0 \n sonar.projectKey=GroovyExample \n sonar.sources=."
-        javaOpts ''
-        jdk '(Inherit From Job)'
+     sonar / \'builders\' << \'hudson.plugins.sonar.SonarRunnerBuilder\' { 
+        properties "sonar.projectName = GroovyExample \\n sonar.projectVersion=1.0 \\n sonar.projectKey=GroovyExample \\n sonar.sources=."
+        javaOpts \'\'
+        jdk \'(Inherit From Job)\'
      }
     }           
     
     ghprbPullRequestMerge {
-                mergeComment('Mergerd from Jenkins')
+                mergeComment(\'Mergerd from Jenkins\')
                 onlyAdminsMerge(false)
                 disallowOwnCode(false)
                 failOnNonMerge(true)	
@@ -64,4 +75,4 @@ triggers {
                 allowMergeWithoutTriggerPhrase(false)
 			}                 
  	 }                       
-}
+}'''
