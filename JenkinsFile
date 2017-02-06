@@ -1,17 +1,5 @@
 #!groovy
-    scm {
-        git {
-            remote {
-                github('amruthapbhat/java-maven-junit-helloworld')
-                credentials ('ca9b112d-19c3-491c-8e6d-23ec20cc5290')
-                refspec('+refs/pull/*:refs/remotes/origin/pr/*')
-            }
-            branch('*/feature')
-            extensions {   
-    wipeOutWorkspace()
-  }
-    }       
-}
+   checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'ca9b112d-19c3-491c-8e6d-23ec20cc5290', url: 'https://github.com/amruthapbhat/java-maven-junit-helloworld']]])
 
 triggers {
         githubPullRequest {
