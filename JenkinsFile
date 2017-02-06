@@ -1,4 +1,4 @@
-jobDsl removedJobAction: 'DELETE', removedViewAction: 'DELETE', targets: '''job(\'GroovyExample\') {
+node {jobDsl removedJobAction: 'DELETE', removedViewAction: 'DELETE', targets: '''job(\'GroovyExample\') {
     scm {
         git {
             remote {
@@ -76,3 +76,4 @@ triggers {
 			}                 
  	 }                       
 }'''
+}
