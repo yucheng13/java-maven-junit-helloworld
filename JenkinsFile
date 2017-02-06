@@ -13,4 +13,14 @@ node {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean install/)      
    }
    
+   stage ('Sonar Analysis') {
+   //Running Sonar Analysis
+   sonar ->
+     sonar / 'builders' << 'hudson.plugins.sonar.SonarRunnerBuilder' { 
+        properties "sonar.projectName = GroovyExample \n sonar.projectVersion=1.0 \n sonar.projectKey=GroovyExample \n sonar.sources=."
+        javaOpts ''
+        jdk '(Inherit From Job)'
+     }
+   }
+   
 }
