@@ -1,5 +1,6 @@
 node {
    def mvnHome
+   def scannerHome
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/amruthapbhat/java-maven-junit-helloworld.git'
@@ -7,6 +8,7 @@ node {
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.           
       mvnHome = tool 'Maven'
+      scannerHome = tool 
    }
    stage('Build') {
       // Run the maven build
@@ -16,12 +18,7 @@ node {
    stage ('Sonar Analysis') {
    //Running Sonar Analysis
    withSonarQubeEnv {
-   sonar ->
-     sonar / 'builders' << 'hudson.plugins.sonar.SonarRunnerBuilder' { 
-        properties "sonar.projectName = GroovyExample \n sonar.projectVersion=1.0 \n sonar.projectKey=GroovyExample \n sonar.sources=."
-        javaOpts ''
-        jdk '(Inherit From Job)'
-     }
+   bat(/"scannerHome")\bin\sonar-scanner
      }
    }
    
