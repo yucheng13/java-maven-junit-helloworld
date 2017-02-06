@@ -1,4 +1,5 @@
 #!groovy
+node {
    checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'ca9b112d-19c3-491c-8e6d-23ec20cc5290', url: 'https://github.com/amruthapbhat/java-maven-junit-helloworld']]])
 
 triggers {
@@ -63,3 +64,4 @@ triggers {
                 allowMergeWithoutTriggerPhrase(false)
 			}                 
  	 }                       
+}
