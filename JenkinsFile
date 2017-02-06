@@ -1,6 +1,7 @@
 stage 'build'
 node{
     checkout scm
-    def mvnHome = tool 'Maven'
-    sh "${mvnHome}/bin/mvn -B verify"
+    steps {
+        maven('clean install', 'pom.xml')       
+    }
 }
