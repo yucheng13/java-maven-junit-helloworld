@@ -8,7 +8,7 @@ node {
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.           
       mvnHome = tool 'Maven'
-      scannerHome = tool 
+      scannerHome = tool 'Sonar'
    }
    stage('Build') {
       // Run the maven build
@@ -18,7 +18,7 @@ node {
    stage ('Sonar Analysis') {
    //Running Sonar Analysis
    withSonarQubeEnv {
-   bat(/"scannerHome")\bin\sonar-scanner")
+   bat(/"${scannerHome}\bin\sonar-scanner")
      }
    }   
 }
