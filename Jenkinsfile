@@ -11,6 +11,7 @@ node {
       // **       in the global configuration.           
       mvnHome = tool 'Maven'
       scannerHome = tool 'Sonar'
+   }
          
    stage('Build') {
       // Run the maven build
