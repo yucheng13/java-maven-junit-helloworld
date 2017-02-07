@@ -3,7 +3,7 @@ node {
    def scannerHome
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
-      git 'https://github.com/amruthapbhat/java-maven-junit-helloworld.git'
+      git poll: true, url: 'https://github.com/amruthapbhat/java-maven-junit-helloworld.git'
       
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
