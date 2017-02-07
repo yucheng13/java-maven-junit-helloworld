@@ -19,7 +19,7 @@ node {
    stage ('Sonar Analysis') {
    //Running Sonar Analysis
    withSonarQubeEnv {
-   bat(/"${scannerHome}\bin\sonar-scanner"/)
+   bat(/"${scannerHome}\bin\sonar-scanner" -Dsonar.projectKey=java-maven-junit-helloworld -Dsonar.projectSources=./)
      }
    }   
 }
