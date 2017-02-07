@@ -4,7 +4,7 @@ node {
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/amruthapbhat/java-maven-junit-helloworld.git'
-      step([$class: 'PipelineTriggersJobProperty', GhprbTrigger])
+      step([$class: 'GhprbTrigger'])
       
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
