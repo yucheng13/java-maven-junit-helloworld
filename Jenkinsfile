@@ -10,7 +10,17 @@ node {
       // **       in the global configuration.           
       mvnHome = tool 'Maven'
       scannerHome = tool 'Sonar'
+      properties(
+    [
+        [
+            $class: 'BuildDiscarderProperty',
+            strategy: [$class: 'LogRotator', numToKeepStr: '10']
+        ],
+        pipelineTriggers([cron('H/30 * * * *')]),
+    ]
+)
    }
+   
    stage('Build') {
       // Run the maven build
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean install/)      
