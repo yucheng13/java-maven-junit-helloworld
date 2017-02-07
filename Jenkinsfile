@@ -4,23 +4,14 @@ node {
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/amruthapbhat/java-maven-junit-helloworld.git'
+      $class: 'PipelineTriggersJobProperty'
       
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.           
       mvnHome = tool 'Maven'
       scannerHome = tool 'Sonar'
-      properties(
-    [
-        [
-            $class: 'BuildDiscarderProperty',
-            strategy: [$class: 'LogRotator', numToKeepStr: '10']
-        ],
-        pipelineTriggers([cron('H/30 * * * *')]),
-    ]
-)
-   }
-   
+         
    stage('Build') {
       // Run the maven build
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean install/)      
