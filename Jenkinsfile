@@ -3,7 +3,7 @@ node {
 def mvnHome
    def scannerHome 
 
-    String path = '/tmp/jenkins/upstream-repo'
+   /* String path = '/tmp/jenkins/upstream-repo'
     bat "move ${path}"
     ws(path) {
         bat 'git --version'
@@ -11,9 +11,9 @@ def mvnHome
         bat 'touch README.md; git add README.md; git commit -m "init"'
         bat 'git checkout -b pull-requests/1/from'
         bat 'touch file.txt; git add file.txt; git commit -m "Add file"'
-    }
+    }*/
     // sh "git clone ${path} ."
-    bat 'pwd; tree; ls;'
+   // bat 'pwd; tree; ls;'
     checkout([
         $class: 'GitSCM',
         branches: [[name: 'refs/heads/master']],
