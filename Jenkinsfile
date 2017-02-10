@@ -4,7 +4,7 @@ def mvnHome
    def scannerHome 
 
     String path = '/tmp/jenkins/upstream-repo'
-    bat "move -rf ${path}"
+    bat "move ${path}"
     ws(path) {
         bat 'git --version'
         bat 'git init'
