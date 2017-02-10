@@ -4,16 +4,16 @@ def mvnHome
    def scannerHome 
 
     String path = '/tmp/jenkins/upstream-repo'
-    sh "rm -rf ${path}"
+    bat "rm -rf ${path}"
     ws(path) {
-        sh 'git --version'
-        sh 'git init'
-        sh 'touch README.md; git add README.md; git commit -m "init"'
-        sh 'git checkout -b pull-requests/1/from'
-        sh 'touch file.txt; git add file.txt; git commit -m "Add file"'
+        bat 'git --version'
+        bat 'git init'
+        bat 'touch README.md; git add README.md; git commit -m "init"'
+        bat 'git checkout -b pull-requests/1/from'
+        bat 'touch file.txt; git add file.txt; git commit -m "Add file"'
     }
     // sh "git clone ${path} ."
-    sh 'pwd; tree; ls;'
+    bat 'pwd; tree; ls;'
     checkout([
         $class: 'GitSCM',
         branches: [[name: 'refs/heads/master']],
@@ -37,7 +37,7 @@ def mvnHome
             localBranch: 'master'
         ]]
     ])
-    sh 'git log -n 10 --graph --pretty=oneline --abbrev-commit --all --decorate=full'
+    bat 'git log -n 10 --graph --pretty=oneline --abbrev-commit --all --decorate=full'
          
   // stage('Build') {
       // Run the maven build
