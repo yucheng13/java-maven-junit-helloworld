@@ -1,12 +1,8 @@
 package com.example.javamavenjunithelloworld;
-
-
 import org.junit.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
-
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 /* This is to test eclipse
