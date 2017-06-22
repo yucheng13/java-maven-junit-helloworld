@@ -51,7 +51,7 @@
     </dependency>
   </dependencies>
   <scm>
-    <developerConnection>scm:git:https://github.com/amruthapbhat/java-maven-junit-helloworld</developerConnection>
+    <connection>scm:git:https://github.com/amruthapbhat/java-maven-junit-helloworld</connection>
   </scm>
   <build>
     <plugins>
