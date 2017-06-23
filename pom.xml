@@ -13,7 +13,12 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
            <sonar.projectKey>MyProjectKey</sonar.projectKey>
   </properties>
-
+  <distributionManagement>
+   <repository>
+     <id>nexus</id>
+         <url>http://130.211.203.31:8081/repository/mavenreleasetest/</url>
+   </repository>
+  </distributionManagement>
   <dependencies>
     <!-- Testing dependencies. -->
     <dependency>
