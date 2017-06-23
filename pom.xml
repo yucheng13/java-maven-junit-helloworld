@@ -16,7 +16,7 @@
   <distributionManagement>
    <repository>
      <id>nexus</id>
-         <url>http://130.211.203.31:8081/repository/mavenreleasetest/</url>
+         <url>http://130.211.203.31:8081/repository/maventesting/</url>
    </repository>
   </distributionManagement>
   <dependencies>
