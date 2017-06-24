@@ -5,7 +5,7 @@
 
   <groupId>com.example</groupId>
   <artifactId>java-maven-junit-helloworld</artifactId>
-  <version>1.0.103-SNAPSHOT</version>
+  <version>1.0.103</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -22,7 +22,8 @@
   </distributionManagement>
    <scm>		
   <connection>scm:git:https://github.com/amruthapbhat/java-maven-junit-helloworld</connection>				
- </scm>
+   <tag>java-maven-junit-helloworld-1.0.103</tag>
+  </scm>
     <dependencies>
     <!-- Testing dependencies. -->
     <dependency>
