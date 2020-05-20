@@ -14,9 +14,19 @@ pipeline {
     }
 
     stage('report') {
-      steps {
-        sh '**/target/surefire-reports/TEST-*.xml'
-        junit '**/target/surefire-reports/TEST-*.xml'
+      parallel {
+        stage('report') {
+          steps {
+            junit '**/target/surefire-reports/TEST-*.xml'
+          }
+        }
+
+        stage('achive') {
+          steps {
+            archiveArtifacts 'target/*.jar'
+          }
+        }
+
       }
     }
 
